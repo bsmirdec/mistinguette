@@ -21,6 +21,51 @@ html {
   align-items: center;
 }
 
+.image-full {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Par défaut : afficher seulement l'image entière */
+.image-left,
+.image-right {
+  display: none;
+}
+
+/* Sur téléphone */
+@media (max-width: 768px) {
+  /* En mobile : désactiver le style vidéo pour ce conteneur d'images */
+  .video-container {
+    position: static;
+    padding-bottom: 0;
+    height: auto;
+    overflow: visible;
+  }
+
+  /* cacher l'image entière */
+  .image-full {
+    display: none;
+  }
+
+  /* afficher les deux moitiés */
+  .image-left,
+  .image-right {
+    display: block;
+    width: 100%;
+    height: auto; /* moitié de l'écran */
+    object-fit: cover;
+  }
+
+  .image-left {
+    object-position: top;
+  }
+
+  .image-right {
+    object-position: bottom;
+  }
+}
+
 .overlay {
   background-color: rgba(0, 0, 0, 0.6);
   padding: 40px;
